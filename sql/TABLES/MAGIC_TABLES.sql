@@ -87,9 +87,10 @@ create table class_spells
 	spell_id bigint
 );
 
-create index class_spells_ix on class_spells
+create table class_spells
 (
-	class_id
+	class_id smallint,
+	spell_id bigint
 );
 
 drop table if exists applicable_effects;

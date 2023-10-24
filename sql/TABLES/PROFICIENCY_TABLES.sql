@@ -16,6 +16,11 @@ create table proficiencies
 	category char(1)
 );
 
+create unique index proficiencies_uix on proficiencies
+(
+	proficiency_id
+);
+
 drop table if exists class_proficiencies;
 
 create table class_proficiencies
@@ -23,4 +28,10 @@ create table class_proficiencies
 	class_id smallint not null,
 	proficiency_id bigint,
 	class_level smallint
+);
+
+create unique index class_proficiencies_uix on class_proficiencies
+(
+	class_id,
+	proficiency_id
 );

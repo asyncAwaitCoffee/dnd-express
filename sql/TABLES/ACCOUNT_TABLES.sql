@@ -17,10 +17,19 @@ create table accounts
 	characters_list bigint[] not null default '{}'
 );
 
-create unique index accounts_uix
-on accounts using btree
+create unique index accounts_uix_login on accounts
 (
-	account_login asc
+	account_login
+);
+
+create unique index accounts_uix_id on accounts
+(
+	account_id
+);
+
+create unique index accounts_uix_token on accounts
+(
+	account_token
 );
 
 drop table if exists characters_list;
@@ -55,8 +64,7 @@ create table characters_list
 	is_generated boolean
 );
 
-create unique index characters_list_uix
-on characters_list using btree
+create unique index characters_list_uix on characters_list
 (
-	character_id asc
+	character_id
 );

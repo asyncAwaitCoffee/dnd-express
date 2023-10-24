@@ -26,12 +26,23 @@ create table items
 	description varchar(200)
 );
 
+create unique index items_uix on items
+(
+	item_id
+);
+
 drop table if exists class_inventory;
 create table class_inventory
 (
 	class_id bigint,
 	item_id bigint,
 	quantity bigint
+);
+
+create index class_inventory_ix on class_inventory
+(
+	class_id,
+	item_id
 );
 
 drop table if exists character_inventory;
@@ -48,4 +59,4 @@ create unique index character_inventory_uix on character_inventory
 (
 	character_id,
 	cell_id
-)
+);
