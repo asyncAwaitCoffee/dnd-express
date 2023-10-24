@@ -1,10 +1,4 @@
-import path from "path"
-import { fileURLToPath } from "url";
 import { User } from "../models/User.js";
-
-
-//const __filename = fileURLToPath(import.meta.url);
-//const __dirname = `${path.dirname(__filename)}\\..\\html`;
 
 export function signup_GET(request, response) {
     response.render("signup.ejs")

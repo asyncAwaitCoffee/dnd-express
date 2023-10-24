@@ -3,6 +3,7 @@ import { router } from './routs/routs.js'
 import { authCheck } from "./middleware/authCheck.js"
 import cookieParser from 'cookie-parser'
 import { characterCheck } from "./middleware/charCheck.js";
+import { cookieSecret } from "./config/config.js"
 
 const app = express();
 const port = 3000;
@@ -12,7 +13,7 @@ app.use("/account/character/", express.static("public"))
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));    // extended ??
-app.use(cookieParser("cookie has secrets"))
+app.use(cookieParser(cookieSecret))
 app.set('view engine', 'ejs');
 
 app.get("/", parseAccountToken, authCheck)

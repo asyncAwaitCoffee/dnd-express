@@ -1,5 +1,6 @@
 import { DB } from "./DB.js";
 import { UserException } from "./Wrappers.js";
+import { passwordSecret } from "../config/config.js"
 
 
 const { createHmac } = await import('node:crypto');
@@ -17,7 +18,7 @@ export class User {
     }
 
     static async #secret(password) {
-        const secret = "no secret";
+        const secret = passwordSecret;
         const hashedPassword = await createHmac("sha256", secret)
                    .update(password)
                    .digest("hex")
