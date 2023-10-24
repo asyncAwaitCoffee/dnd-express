@@ -20,6 +20,11 @@ create table spells
 	spell_type char(1)	
 );
 
+create unique index spells_uix on spells
+(
+	spell_id
+);
+
 drop table if exists effects;
 drop sequence if exists effects_seq;
 
@@ -40,6 +45,11 @@ create table effects
 	asis_effects jsonb
 );
 
+create unique index effects_uix on effects
+(
+	effect_id
+);
+
 drop table if exists character_effects;
 
 create table character_effects
@@ -51,6 +61,11 @@ create table character_effects
 	origin varchar(20)
 );
 
+create index character_effects_ix on character_effects
+(
+	character_id
+);
+
 drop table if exists character_spells;
 
 create table character_spells
@@ -59,12 +74,22 @@ create table character_spells
 	spell_id bigint
 );
 
+create index character_spells_ix on character_spells
+(
+	character_id
+);
+
 drop table if exists class_spells;
 
 create table class_spells
 (
 	class_id smallint,
 	spell_id bigint
+);
+
+create index class_spells_ix on class_spells
+(
+	class_id
 );
 
 drop table if exists applicable_effects;
