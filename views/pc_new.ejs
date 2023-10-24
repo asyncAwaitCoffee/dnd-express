@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новый Персонаж</title>
+    <link rel="icon" type="image/x-icon" href="/images/fav_icon.ico">
+    <link rel="stylesheet" href="/styles/common.css">
+    <link rel="stylesheet" href="/styles/new_character.css">
+    <script src="/scripts/formulas.js" defer></script>
+</head>
+<body>
+
+    <%- include('partials/header'); -%>
+
+    <section>
+        <form action="/account/new-character" method="post" autocomplete="off" onsubmit="onSubmit()">
+            <fieldset id="char-fieldset">
+                <legend>Персонаж</legend>
+                <label for="char-name">Имя</label>
+                <input type="text" name="character_name" id="char-name" placeholder="Имя">
+
+                <label for="race-name">Раса</label>
+                <select name="race_id" id="race-name">
+                    <option value="2">Mountain Dwarf</option>
+                    <option value="3">Hill Dwarf</option>
+                </select>
+
+                <label for="class-name">Класс</label>
+                <select name="main_class" id="class-name">
+                    <option value="1">Barbarian</option>
+                    <option value="2">Druid</option>
+                </select>
+
+                <label for="class-level">Уровень</label>
+                <input type="number" name="main_level" id="class-level" min="1" max="20">
+            </fieldset>
+            <fieldset id="ability-fieldset">
+                <legend>Параметры</legend>
+                <div class="ability str-block">
+                    <label for="str">Сила</label>
+                    <input type="text" class="score" name="str" id="str" class="abilities" value="1">
+                    <input type="text" class="mod" id="str-mod" value="-5" disabled>
+                </div>
+                <div class="ability dex-block">
+                    <label for="dex">Ловкость</label>
+                    <input type="text" class="score" name="dex" id="dex" class="abilities" value="1">
+                    <input type="text" class="mod" id="dex-mod" value="-5" disabled>
+                </div>
+                <div class="ability con-block">
+                    <label for="con">Телосложение</label>
+                    <input type="text" class="score" name="con" id="con" class="abilities" value="1">
+                    <input type="text" class="mod" id="con-mod" value="-5" disabled>
+                </div>
+                <div class="ability int-block">
+                    <label for="int">Интеллект</label>
+                    <input type="text" class="score" name="int" id="int" class="abilities" value="1">
+                    <input type="text" class="mod" id="int-mod" value="-5" disabled>
+                </div>
+                <div class="ability wis-block">
+                    <label for="wis">Мудрость</label>
+                    <input type="text" class="score" name="wis" id="wis" class="abilities" value="1">
+                    <input type="text" class="mod" id="wis-mod" value="-5" disabled>
+                </div>
+                <div class="ability cha-block">
+                    <label for="cha">Харизма</label>
+                    <input type="text" class="score" name="cha" id="cha" class="abilities" value="1">
+                    <input type="text" class="mod" id="cha-mod" value="-5" disabled>
+                </div>
+            </fieldset>
+            <input type="submit" value="submit">
+        </form>
+    </section> 
+
+    <%- include('partials/footer'); -%>
+
+    <script>
+        [...document.getElementsByClassName("abilities")]
+        .forEach(a => {a.addEventListener("input", () => {            
+            document.querySelector(`#${a.id}-mod`).value = abilityMod(a.value);
+        })})
+
+        function onSubmit() {
+            const statsJSON = document.getElementById("stats-json")
+            const classJSON = document.getElementById("class-json")
+
+            const statsObj = {
+                str: document.getElementById("str").value,
+                dex: document.getElementById("dex").value,
+                con: document.getElementById("con").value,
+                int: document.getElementById("int").value,
+                wis: document.getElementById("wis").value,
+                cha: document.getElementById("cha").value
+            }
+
+            const classObj = {
+                class_id: document.getElementById("class-name").value,
+                level: document.getElementById("class-level").value,
+            }
+
+            statsJSON.value = JSON.stringify(statsObj)
+            classJSON.value = JSON.stringify(classObj)
+        }
+    </script>
+</body>
+</html>

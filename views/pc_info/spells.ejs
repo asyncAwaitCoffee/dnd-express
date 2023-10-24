@@ -1,0 +1,42 @@
+<div class="list-wrapper">
+    <div id="magic-list" class="list">
+        <div class="el-list-100 list-block-name">Spells</div>
+        <div class="el-list-100 list-block-subname">Spell Slots</div>
+        <div id="spell-slots" class="list-block list-block-up">
+            <div id="" class="el-list-100 grid-spell-slots" style="background-image: url(/images/<%= pc.spells_background %>.png);">
+                <div class="grid-cell">1</div>
+                <div class="grid-cell">2</div>
+                <div class="grid-cell">3</div>
+                <div class="grid-cell">4</div>
+                <div class="grid-cell">5</div>
+                <div class="grid-cell">6</div>
+                <div class="grid-cell">7</div>
+                <div class="grid-cell">8</div>
+                <div class="grid-cell">9</div>
+                <% if (pc.spell_slots) { %>
+                    <% for( let spellLevel = 0; spellLevel < 9; spellLevel++ ) { %>
+                        <div id="spell_slot_<%= spellLevel + 1 %>" class="grid-cell"><%= pc.spell_slots[spellLevel] ?? "-" %></div>
+                    <% } %>
+                <% } %>    
+            </div>
+        </div>
+        <div class="el-list-100 list-block-subname">Spells List</div>
+        <div id="spells-list" class="list-block list-block-up scrollable">
+            <div class="text-block-100">
+                <% if (spellList) { %>
+                    <% for (const spell of spellList) { %>
+                        <div class="text-block-100">
+                            <details>
+                                <summary>
+                                    <%= spell.title %> (lvl. <%= spell.spell_level %>)
+                                    <div data-spell="<%= spell.effect_id %>" class="detail-button cast-button" onclick="castSpell(event)">Cast</div>
+                                </summary>
+                                <div><%= spell.description %></div>
+                            </details>
+                        </div>
+                    <% } %>
+                <% } %>
+            </div>
+        </div>        
+    </div>
+</div>

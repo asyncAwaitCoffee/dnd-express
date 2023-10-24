@@ -1,0 +1,51 @@
+<div class="list-wrapper">
+    <div id="features-list" class="list">
+        <div class="el-list-100 list-block-name" id="features-header"></div> <!-- filled with script -->
+        <div class="el-list-100 list-block-subname">Class Features</div>
+        <div id="class-features" class="list-block list-block-up scrollable">
+            <% for (const feat of classFeatures) { %>
+                <div id="class_feat_id_<%= feat.feature_id %>" class="text-block-100">
+                    <details>
+                        <summary><%= feat.title %>
+                            <% if (feat.charges_actual != null) { %>
+                                (<span><%= feat.charges_actual %></span>)
+                            <% } %>
+                            <div data-feature="<%= feat.feature_id %>" class="detail-button cast-button" onclick="activateFeature(event)">Activate</div>
+                        </summary>
+                        <div><%= feat.description %></div>
+                    </details>
+                </div>
+            <% } %>
+        </div>
+        <div class="el-list-100 list-block-subname"><p>Additional abilities</p><button id="add-feature" class="add-item" onclick="toggleFeatureForm()"></button></div>
+        <div id="custom-features" class="list-block list-block-up scrollable">
+            <% for (const feat of customFeatures) { %>
+                <div id="cust_feat_id_<%= feat.feature_id %>" class="text-block-100">                    
+                    <details>
+                        <summary><%= feat.title %>
+                            <% if (feat.charges) { %>
+                                (<%= feat.charges %>)
+                            <% } %>
+                            <div class="dangerous detail-button" onclick="deleteCustomFeature(event, '<%= feat.feature_id %>')">Delete</div>
+                        </summary>
+                        <div><%= feat.description %></div>
+                    </details>
+                </div>
+            <% } %>
+            
+            <form id="form-feature-add" class="absent">
+                <fieldset>
+                    <legend>New Custom Feature</legend>
+                    <label for="item-title">Title</label>
+                    <input type="text" name="title" id="item-title" autocomplete="off">
+                    <label for="item-describe">Description</label>
+                    <textarea type="text" name="description" id="item-describe" maxlength="100" rows="4"></textarea>
+                    <label for="item-counter">Charges</label>
+                    <input type="number" name="counter" id="item-counter" max="100" min="-100" autocomplete="off">
+                    <input type="submit" value="Save">
+                    <button type="button" onclick="toggleFeatureForm()">Cancel</button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DND List - <%= pc.name %></title>
+    <link rel="icon" type="image/x-icon" href="/images/fav_icon.ico">
+    <link rel="stylesheet" href="/styles/character_info.css">
+    <link rel="stylesheet" href="/styles/common.css">
+    <link rel="stylesheet" href="/styles/pc_info.css">
+    <link rel="stylesheet" href="/styles/pc_inventory.css">
+    <link rel="stylesheet" href="/styles/spell.css">
+    <script src="/scripts/formulas.js"></script>
+    <script src="/scripts/common.js"></script>
+    <script src="/scripts/effects.js"></script>
+    <script src="/scripts/dictionary.js"></script>
+    <script src="/scripts/features.js" defer></script>
+    <script src="/scripts/spells.js"></script>
+    <script src="/scripts/character.js"></script>
+    <script src="/scripts/character_ui.js" defer></script>
+    <script src="/scripts/inventory.js"></script>
+    <script src="/scripts/inventory_ui.js" defer></script>
+    <script src="/scripts/tech.js" defer></script>
+</head>
+<body>
+
+    <ul id="controls">
+        <li id="back"><a>BACK</a></li>
+        <li id="forward"><a>FORWARD</a></li>
+        <li id="next_round"><a>ROUND</a></li>
+        <li id="rest"><a>REST</a></li>
+    </ul>
+
+    <%- include('partials/header.ejs'); -%>
+
+    <section>
+
+        <%- include('pc_info/stats.ejs'); -%>
+        <%- include('pc_info/skills.ejs'); -%>
+        <%- include('pc_info/features.ejs'); -%>
+        <%- include('pc_info/spells.ejs'); -%>
+        <%- include('pc_info/inventory.ejs'); -%>
+
+    </section>
+
+    <%- include('partials/footer.ejs'); -%>
+
+    <script>
+
+        const test = <%- JSON.stringify(pc) %>
+    
+        //PC.getPlayerCharacter(test)
+    
+        const myPC = new PC(test)
+        const pcEffects = new Effects(<%- JSON.stringify(equipmentEffects) %>, <%- JSON.stringify(characterEffects) %>)
+    
+        myPC.initMe()
+    
+    </script>
+    <style>
+        /*default main rgba(222, 184, 135)*/
+        /*default sub rgb(164, 136, 102, 0.9)*/
+        :root {
+            --test-main: <%= pc.colors.main %>;
+            --test-sub: <%= pc.colors.sub %>;
+        }
+
+        .list-block-name, #form-feature-add fieldset {
+            background-color: var(--test-main);
+        }
+
+        .list-block-subname, #form-feature-add {
+            background-color: var(--test-sub);
+        }
+
+    </style>
+</body>
+</html>

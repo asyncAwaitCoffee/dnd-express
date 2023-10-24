@@ -1,0 +1,25 @@
+form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    row-gap: 5px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+fieldset {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    row-gap: 5px;
+    align-items: center;
+    justify-content: center;
+}
+
+#on_error_hint {
+    color: red;
+    position: absolute;
+    top: -20%;
+    white-space: nowrap;
+}

@@ -1,0 +1,21 @@
+<header>
+  <nav>
+    <ul id="navigation">
+      <li><a href="/">Главная</a></li>
+      <% if (login) { %>
+        <li><a href="/account/list-of-characters">Список персонажей</a></li>
+        <li><a href="/account/new-character">Создать персонажа</a></li>
+      <% } %>
+    </ul>
+    
+    <ul id="welcome">
+      <% if (login) { %>
+        <li>Привет, <a href="/account/info"><%= login %>!</a></li>
+        <li><a href="/auth/logout">Выйти</a></li>
+      <% } else { %>
+        <li><a href="/auth/login">Войти</a></li>
+        <li><a href="/auth/signup" class="btn">Регистрация</a></li>
+      <% } %>
+    </ul>
+  </nav>
+</header>

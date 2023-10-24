@@ -1,0 +1,145 @@
+<div class="list-wrapper">
+    <div id="character-list" class="list">
+        <div class="el-list-100 list-block-name" id="stats-header"></div> <!-- filled with script -->
+        <div class="el-list-100 list-block-subname">Characteristics</div>
+        <div id="characteristics" class="list-block">
+            <div class="el-list-30">
+                <div>Armor Class</div>
+                <div id="ac"></div>
+            </div>
+            <div onclick="promptChangeHP()" class="el-list-30">
+                <div>Health</div>
+                <div class="el-list-100 row-flex">
+                    <div id="current_hp" class="el-list-45"></div>
+                    <div id="max_hp" class="el-list-45"></div>
+                </div>
+            </div>
+            <div class="el-list-30">
+                <div>Temp. HP</div>
+                <div id="temp_hp"></div>
+            </div>
+            <div class="el-list-30">
+                <div>Initiative</div>
+                <div id="initiative"></div>
+            </div>
+            <div class="el-list-30">
+                <div>Speed</div>
+                <div id="speed"></div>
+            </div>
+            <div class="el-list-30">
+                <div>Prof. Bonus</div>
+                <div id="proficiency"></div>
+            </div>
+        </div>
+        <div class="el-list-100 list-block-subname">Attack</div>
+        <div id="attack" class="list-block">
+            <div class="el-list-30"></div> <!-- для смещения -->
+            <div class="el-list-30">Accuracy</div>
+            <div class="el-list-30">Damage</div>
+            <div class="el-list-30">
+                <div id="">Strength</div>
+            </div>
+            <div class="el-list-30" id="str-attack"></div>
+            <div class="el-list-30" id="str-damage"></div>
+            <div class="el-list-30">
+                <div id="">Dexterity</div>
+            </div>
+            <div class="el-list-30" id="dex-attack"></div>
+            <div class="el-list-30" id="dex-damage"></div>
+        </div>
+        <div class="el-list-100 list-block-subname">Saving Throws</div>
+        <div id="saves" class="list-block">
+            <div class="el-list-20" title="Strength">STR</div>
+            <div class="el-list-10 mod-based" id="str_save" data-base="str"></div>
+            <div class="el-list-20" title="Dexterity">DEX</div>
+            <div class="el-list-10 mod-based" id="dex_save" data-base="dex"></div>
+            <div class="el-list-20" title="Constitution">CON</div>
+            <div class="el-list-10 mod-based" id="con_save" data-base="con"></div>
+            <div class="el-list-20" title="Intelligence">INT</div>
+            <div class="el-list-10 mod-based" id="int_save" data-base="int"></div>
+            <div class="el-list-20" title="Wisdom">WIS</div>
+            <div class="el-list-10 mod-based" id="wis_save" data-base="wis"></div>
+            <div class="el-list-20" title="Charisma">CHA</div>
+            <div class="el-list-10 mod-based" id="cha_save" data-base="cha"></div>
+        </div>
+        <div class="el-list-100 list-block-subname">Modifiers</div>
+        <div id="mods" class="list-block">
+            <div class="el-list-11" title="Сила">STR</div>
+            <div class="el-list-20 row-flex">
+                <div class="el-list-50" id="str_val"></div>
+                <div class="el-list-50 mod-based" id="str_mod" data-base="str"></div>
+            </div>
+            <div class="el-list-11" title="Ловкость">DEX</div>
+            <div class="el-list-20 row-flex">
+                <div class="el-list-50" id="dex_val"></div>
+                <div class="el-list-50 mod-based" id="dex_mod" data-base="dex"></div>
+            </div>
+            <div class="el-list-11" title="Телосложение">CON</div>
+            <div class="el-list-20 row-flex">
+                <div class="el-list-50" id="con_val"></div>
+                <div class="el-list-50 mod-based" id="con_mod" data-base="con"></div>
+            </div>
+            <div class="el-list-11" title="Интеллект">INT</div>
+            <div class="el-list-20 row-flex">
+                <div class="el-list-50" id="int_val"></div>
+                <div class="el-list-50 mod-based" id="int_mod" data-base="int"></div>
+            </div>
+            <div class="el-list-11" title="Мудрость">WIS</div>
+            <div class="el-list-20 row-flex">
+                <div class="el-list-50" id="wis_val"></div>
+                <div class="el-list-50 mod-based" id="wis_mod" data-base="wis"></div>
+            </div>
+            <div class="el-list-11" title="Харизма">CHA</div>
+            <div class="el-list-20 row-flex" data-base="cha">
+                <div class="el-list-50" id="cha_val"></div>
+                <div class="el-list-50 mod-based" id="cha_mod" data-base="cha"></div>
+            </div>
+        </div>
+        <div class="el-list-100 list-block-subname">Resistance</div>
+        <div id="resistance" class="list-block">
+            <div class="grid-resistance el-list-100">
+                <div class="grid-cell" title="Bludgeoning" style="background-image: url(images/res_bludge.png); background-size: cover;"></div>
+                <div class="grid-cell" title="Piercing" style="background-image: url(images/res_pierce.png); background-size: cover;"></div>
+                <div class="grid-cell" title="Slashing" style="background-image: url(images/res_slash.png); background-size: cover;"></div>
+                <div class="grid-cell" title="Fire" style="background-image: url(images/res_fire.png); background-size: cover;"></div>
+                <div class="grid-cell" title="Cold" style="background-image: url(images/res_cold.png); background-size: cover;"></div>
+                <div class="grid-cell" title="Lightning" style="background-image: url(images/res_light.png); background-size: cover;"></div>
+                <div class="grid-cell" title="Thunder" style="background-image: url(images/res_thunder.png); background-size: cover;"></div>
+                <div class="grid-cell" title="Acid" style="background-image: url(images/res_acid.png); background-size: cover;"></div>
+                <div class="grid-cell" title="Poison" style="background-image: url(images/res_poison.png); background-size: cover;"></div>
+                <div class="grid-cell" title="Necrotic" style="background-image: url(images/res_necro.png); background-size: cover;"></div>
+                <div class="grid-cell" title="Radiant" style="background-image: url(images/res_radiant.png); background-size: cover;"></div>
+                <div class="grid-cell" title="Force" style="background-image: url(images/res_force.png); background-size: cover;"></div>
+                <div class="grid-cell" title="Psychic" style="background-image: url(images/res_psych.png); background-size: cover;"></div>
+                <div class="grid-cell" title="Magic" style="background-image: url(images/res_magic.png); background-size: cover;"></div>
+                <div id="bludge" class="grid-cell">0</div>
+                <div id="pierce" class="grid-cell">0</div>
+                <div id="slash" class="grid-cell">0</div>
+                <div id="fire" class="grid-cell">0</div>
+                <div id="cold" class="grid-cell">0</div>
+                <div id="light" class="grid-cell">0</div>
+                <div id="thunder" class="grid-cell">0</div>
+                <div id="acid" class="grid-cell">0</div>
+                <div id="poison" class="grid-cell">0</div>
+                <div id="necro" class="grid-cell">0</div>
+                <div id="radiant" class="grid-cell">0</div>
+                <div id="force" class="grid-cell">0</div>
+                <div id="psych" class="grid-cell">0</div>
+                <div id="magic" class="grid-cell">0</div>
+            </div>
+        </div>
+        <div class="el-list-100 list-block-subname">Enchantments</div>
+        <div id="enchantment" class="list-block list-block-up scrollable">
+            <div class="el-list-100" id="enchantments">
+                <% if (characterEffects && characterEffects.length > 0) { %>
+                    <% for(const effect of characterEffects) { %>
+                        <div class="effect-icon" id="effect_id_<%= effect.effect_id %>" title="<%= effect.title %>" style="background-image: url(images/effect_<%= effect.image_path || 'default' %>.png); background-size: cover;">
+                            <div class="effect-duration" style="color: white;"><%= effect.duration || "∞" %></div>
+                            <span id="effect-description" style="display: none;"> <%= effect.effect %></span>
+                        </div>                    
+                    <% } %>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</div>

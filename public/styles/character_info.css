@@ -1,0 +1,66 @@
+#enchantments {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.effect-icon {
+    width: 10%;
+    aspect-ratio: 1;
+    position: relative;
+}
+
+.advantage {
+    animation-name: advantage;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes advantage {
+    from {box-shadow: inset 0 0 5px 0 gold;}
+    to {box-shadow: inset 0 0 5px 5px orange;}
+}
+
+.resistance {
+    box-shadow: inset 0 0 5px 5px PowderBlue;
+}
+
+#character-list {
+    z-index: 99;
+}
+
+
+
+#form-feature-add {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 99;
+    background-color: rgba(210, 105, 30, 0.4);
+    width: 100%;
+    height: 100%;
+}
+
+fieldset {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    background-color: rgba(210, 105, 30, 0.9);
+}
+
+fieldset legend {
+    font-weight: bold;
+    font-size: larger;
+}
+
+textarea {
+    resize: none;
+}

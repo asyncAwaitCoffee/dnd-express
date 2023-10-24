@@ -1,0 +1,147 @@
+#controls {
+    display: flex;
+    flex-flow: row;
+    gap: 10px;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    user-select: none;
+}
+
+.list-wrapper {
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: start;
+    justify-content: center;
+}
+
+.list {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 60%;
+    background-color: azure;
+    position: relative;
+}
+
+.list-block {
+    border: 1px solid black;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    cursor: default;
+    user-select: none;
+    overflow: hidden;
+    align-content: space-around;
+    justify-content: flex-start;
+    position: relative;
+}
+
+.list-block-up {
+    align-content: flex-start;
+}
+
+.list-block-name {
+    font-size: larger;
+    font-weight: bold;
+    background-color: rgba(222, 184, 135);
+    height: 5% !important;
+}
+
+.list-block-subname {
+    font-size: large;
+    font-weight: bold;
+    background-color: rgb(164, 136, 102, 0.9);
+    z-index: 99;
+    height: 5% !important;
+}
+
+div [class^="el-list-"] {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+div [class^="el-list-"]:hover {
+    background-color: rgb(200, 200, 200);
+    overflow: visible;
+}
+
+.add-item {
+    position: absolute;
+    right: 1%;
+    top: 50%;
+    transform: scale(1) translateY(-50%);
+    aspect-ratio: 1;
+    height: 90%;
+    background-image: url("/images/redwhite_plus.png");
+    background-size: cover;
+    transition: transform 0.2s;
+}
+
+.add-item:hover {
+    transform: scale(1.1) translateY(-50%);
+}
+
+#class-features, #custom-features {
+    height: 47.5%;
+}
+
+#characteristics, #attack {
+    height: 15%;
+}
+
+#saves, #mods {
+    height: 10%;
+}
+
+#resistance {
+    height: fit-content;
+}
+
+#enchantment {
+    flex: 1 1 auto;
+}
+
+#str-list {
+    height: 5%;
+}
+
+#dex-list, #cha-list, #tool-list {
+    height: 10%;
+}
+
+#int-list, #wis-list {
+    height: 15%;
+}
+
+@media all and (min-width: 1400px) {
+    /*.list {width: 19%;}*/
+    .list-wrapper {width: 19%;}
+}
+
+@media all and (max-width: 1400px) {
+    /*.list {width: 24%;}*/
+    .list-wrapper {width: 24%;}
+}
+
+@media all and (max-width: 1200px) {
+    /*.list {width: 32%;}*/
+    .list-wrapper {width: 32%;}
+}
+
+@media all and (max-width: 800px) {
+    /*.list {width: 49%;}*/
+    .list-wrapper {width: 49%;}
+}
+
+@media all and (max-width: 600px) {
+    /*.list {width: 99%;}*/
+    .list-wrapper {width: 99%;}
+}

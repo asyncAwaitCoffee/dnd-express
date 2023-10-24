@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DND List - Список персонажей</title>
+    <link rel="icon" type="image/x-icon" href="/images/fav_icon.ico">
+    <link rel="stylesheet" href="/styles/common.css">
+    <script src="/scripts/dictionary.js"></script>
+</head>
+<body>
+
+    <%- include('partials/header'); -%>
+
+    <section>
+        <ul id="pc-list">
+            <% if (charactersList && Object.keys(charactersList).length > 0) { %> <!-- TODO: вынести наружу или тут подходящее место? -->
+                <% for (const pc of charactersList) { %>
+                    <li class="character-link"></li>
+                <% } %>
+            <% } else { %>
+                    <li><div>У вас нет ни одного персонажа.</div></li>
+                    <li><a href="/account/new-character">Создать персонажа</a></li>
+            <% } %>
+        </ul>
+    </section>
+
+    <%- include('partials/footer'); -%>
+
+    <script>
+        const cs = <%- JSON.stringify(charactersList) %>
+        const characterLinks = [...document.querySelectorAll(".character-link")]
+
+        characterLinks.forEach(
+            (el, i) => {
+                const goto = document.createElement("a")
+                goto.textContent = `${cs[i].character_name} ( ${Races.getName(cs[i].race_id)}, ${Classes.getName(cs[i].main_class)}  lvl. ${cs[i].main_level} )`
+                goto.href = `/account/character/info?character_id=${cs[i].character_id}`
+                const del = document.createElement("a")
+                del.classList.add("dangerous")
+                del.textContent = "X"
+                del.href = `/account/character/delete?character_id=${cs[i].character_id}`
+                el.append(goto, del)
+            }
+        )
+    </script>
+
+</body>
+</html>
