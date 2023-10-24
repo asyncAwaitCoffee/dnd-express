@@ -23,24 +23,17 @@ export async function signup_POST(request, response) {
 }
 
 export function login_GET(request, response) {
-    response.locals.hint = "Enter yor login here"
     response.render("login.ejs")
 }
 
 export async function login_POST(request, response) {
     try {
         const token = await User.getAccountToken(request.body.login, request.body.password)
-
-        if (token) {
-            response.cookie("test", token, {httpOnly: true, maxAge: 4 * 60 * 60 * 1000, signed: true })
-            response.redirect("/account/list-of-characters")
-        } else {
-            response.redirect("/")
-        }
+        response.cookie("test", token, {httpOnly: true, maxAge: 4 * 60 * 60 * 1000, signed: true })        
+        response.send({ok: true})
     } catch(error) {
         console.log(error)
-        response.locals.hint = "No such login-password pair"
-        response.render("login.ejs")
+        response.send({text: error.hint})
     }
 }
 

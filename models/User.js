@@ -41,14 +41,14 @@ export class User {
     static async getAccountToken(login, password) {
         try {
             const hashedPassword = await this.#secret(password)
-            const data = await DB.queryRow(
+            const { account_token } = await DB.queryRow(
                 "select * from get_account_token_by_login($1, $2)",
                     login,
                     hashedPassword
                 )
-            return data.account_token
+            return account_token
         } catch(error) {
-            throw new UserException(error.message, `getAccountToken(${login}, ${password})`)
+            throw new UserException(error.message, `getAccountToken(${login}, ${password})`, "No such login-password pair.")
         }
     }
     
