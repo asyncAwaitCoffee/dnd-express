@@ -14,6 +14,11 @@ create table classes
 	hp_dice jsonb
 );
 
+create unique index classes_uix on classes
+(
+	class_id
+);
+
 drop table if exists races;
 
 create table races
@@ -22,4 +27,9 @@ create table races
 	race_name varchar(50) not null,
 	race_features json,
 	parent_race smallint
+);
+
+create unique index races_uix on races
+(
+	race_id
 );

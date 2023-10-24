@@ -20,17 +20,17 @@ alter sequence proficiencies_seq restart;
 insert into proficiencies
 	(title, description, code, category)
 values
-	('Light Armor', 'Allows to use armor of type without penalties.', 'armor_class', 'a'),
-	('Medium Armor', 'Allows to use armor of type without penalties.', 'armor_class', 'a'),
-	('Shield', 'Allows to use shield without penalties.', 'shield_class', 'a'),
-	('Simple Weapon', 'Allows to use weapon of type without penalties.', 'weapon', 'w'),
-	('Martial Weapon', 'Allows to use weapon of type without penalties.', 'weapon', 'w'),
-	('Saving Throw: Strength', 'Rises chances of successfull saving throw.', 'str_save', 's'),
-	('Saving Throw: Dexterity', 'Rises chances of successfull saving throw.', 'dex_save', 's'),
-	('Saving Throw: Constitution', 'Rises chances of successfull saving throw.', 'con_save', 's'),
-	('Saving Throw: Intelligence', 'Rises chances of successfull saving throw.', 'int_save', 's'),
-	('Saving Throw: Wisdom', 'Rises chances of successfull saving throw.', 'wis_save', 's'),
-	('Saving Throw: Charisma', 'Rises chances of successfull saving throw.', 'cha_save', 's'),
+--1		('Light Armor', 'Allows to use armor of type without penalties.', 'armor_class', 'a'),
+--2		('Medium Armor', 'Allows to use armor of type without penalties.', 'armor_class', 'a'),
+--3		('Shield', 'Allows to use shield without penalties.', 'shield_class', 'a'),
+--4		('Simple Weapon', 'Allows to use weapon of type without penalties.', 'weapon', 'w'),
+--5		('Martial Weapon', 'Allows to use weapon of type without penalties.', 'weapon', 'w'),
+--6		('Saving Throw: Strength', 'Rises chances of successfull saving throw.', 'str_save', 's'),
+--7		('Saving Throw: Dexterity', 'Rises chances of successfull saving throw.', 'dex_save', 's'),
+--8		('Saving Throw: Constitution', 'Rises chances of successfull saving throw.', 'con_save', 's'),
+--9		('Saving Throw: Intelligence', 'Rises chances of successfull saving throw.', 'int_save', 's'),
+--10	('Saving Throw: Wisdom', 'Rises chances of successfull saving throw.', 'wis_save', 's'),
+--11	('Saving Throw: Charisma', 'Rises chances of successfull saving throw.', 'cha_save', 's'),
 	('Animal Handling', 'Rises chances of successfull skill check.', 'animal', 'c'),
 	('Athletics', 'Rises chances of successfull skill check.', 'athletics', 'c'),
 	('Intimidation', 'Rises chances of successfull skill check.', 'intimidation', 'c'),
@@ -49,12 +49,12 @@ insert into class_proficiencies
 	(class_id, proficiency_id, class_level)
 values
 	--Barbarian
-	(1,1,1),(1,2,1),(1,3,1),(1,4,1),(1,5,1),(1,6,1),(2,7,1),(1,8,1),(2,9,1),(2,10,1),
-	(2,11,1),(1,12,1),(1,13,1),(1,14,1),(1,15,1),(1,16,1),(1,17,1),
+	(1,1,1),(1,2,1),(1,3,1),(1,4,1),(1,5,1),(1,6,1),(1,7,1),(2,8,1),(1,12,1),(1,13,1),(1,14,1),(1,15,1),(1,16,1),(1,17,1),
 	--Druid
-	(2,1,1),(2,2,1),(2,3,1),(2,9,1),(2,10,1),(2,16,1),(2,17,1),(2,20,1),(2,21,1),(2,12,1),(2,15,1),(2,22,1),(2,23,1)
+	(2,1,1),(2,2,1),(2,3,1),(2,9,1),(2,10,1),(2,11,1),(2,16,1),(2,17,1),(2,20,1),(2,21,1),(2,12,1),(2,15,1),(2,22,1),(2,23,1)
 	;
 
+	
 
 truncate table classes;
 alter sequence classes_seq restart;
