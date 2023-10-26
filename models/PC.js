@@ -7,29 +7,26 @@ export class PC {
     //TODO: добавить методы работы с БД
     constructor(data, proficiencies) {
         try {
-            this.character_name = data.character_name
-            this.race_id = data.race_id
-            this.main_class_id = data.main_class
-            this.main_level = data.main_level
-            this.temp_hp = 0
-            this.ac = 0
-            this.speed = Races.getStats(data.race_id).speed
+            this.character_name = data.character_name ?? ""
+            this.race_id = data.race_id || 2
+            this.main_class_id = data.main_class || 1
+            this.main_level = data.main_level || 1
+            this.speed = Races.getStats(this.race_id).speed
             this.proficiencies = proficiencies
             this.effects = data.item_effects
             this.statsData = data.stat_abilities
-            this.str = data.str
-            this.dex = data.dex
-            this.con = data.con
-            this.int = data.int
-            this.wis = data.wis
-            this.cha = data.cha
-            this.max_hp = data.max_hp || Classes.getHpForClassLevel(data.main_class, data.main_level, abilityMod(data.con))
-            this.current_hp = data.current_hp || Classes.getHpForClassLevel(data.main_class, data.main_level, abilityMod(data.con))
-            this.spell_slots_max = data.spell_slots_max || Classes.getSpellMaxSlots(data.main_class, data.main_level)
-            this.spell_slots = data.spell_slots || Classes.getSpellMaxSlots(data.main_class, data.main_level)
-            this.colors = Classes.getClassColor(data.main_class)
-            this.spells_background = Classes.getSpellsBackground(data.main_class)
-
+            this.str = data.str ?? 1
+            this.dex = data.dex ?? 1
+            this.con = data.con ?? 1
+            this.int = data.int ?? 1
+            this.wis = data.wis ?? 1
+            this.cha = data.cha ?? 1
+            this.max_hp = data.max_hp || Classes.getHpForClassLevel(this.main_class_id, this.main_level, abilityMod(this.con))
+            this.current_hp = data.current_hp || Classes.getHpForClassLevel(this.main_class_id, this.main_level, abilityMod(this.con))
+            this.spell_slots_max = data.spell_slots_max || Classes.getSpellMaxSlots(this.main_class_id, this.main_level)
+            this.spell_slots = data.spell_slots || Classes.getSpellMaxSlots(this.main_class_id, this.main_level)
+            this.colors = Classes.getClassColor(this.main_class_id)
+            this.spells_background = Classes.getSpellsBackground(this.main_class_id)
         } catch(error) {
             console.log(error)
             throw new PCException(error.message, `new PC(${data})`)
@@ -113,7 +110,6 @@ export class PC {
 
     static async saveToDB(account_id, character) {
         try {
-
             const { character_id } = await DB.queryRow(
                 "call create_new_character($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, null)",
                     account_id,
