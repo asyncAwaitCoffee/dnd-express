@@ -8,6 +8,8 @@ class Effects {
             current_hp: {flat: myPC.currentHP},
             max_hp: {flat: myPC.maxHP},
             temp_hp: {flat: myPC.tempHP},
+            accuracy: {flat: 0},
+            damage: {flat: 0},
             initiative: {flat: myPC.dex.getMod()},
             speed: {flat: myPC.speed},
             proficiency: {flat: myPC.proficiency}
