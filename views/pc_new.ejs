@@ -39,32 +39,32 @@
                 <legend>Параметры</legend>
                 <div class="ability str-block">
                     <label for="str">Сила</label>
-                    <input type="text" class="score" name="str" id="str" class="abilities" value="1">
+                    <input type="text" class="score" name="str" id="str" value="1">
                     <input type="text" class="mod" id="str-mod" value="-5" disabled>
                 </div>
                 <div class="ability dex-block">
                     <label for="dex">Ловкость</label>
-                    <input type="text" class="score" name="dex" id="dex" class="abilities" value="1">
+                    <input type="text" class="score" name="dex" id="dex" value="1">
                     <input type="text" class="mod" id="dex-mod" value="-5" disabled>
                 </div>
                 <div class="ability con-block">
                     <label for="con">Телосложение</label>
-                    <input type="text" class="score" name="con" id="con" class="abilities" value="1">
+                    <input type="text" class="score" name="con" id="con" value="1">
                     <input type="text" class="mod" id="con-mod" value="-5" disabled>
                 </div>
                 <div class="ability int-block">
                     <label for="int">Интеллект</label>
-                    <input type="text" class="score" name="int" id="int" class="abilities" value="1">
+                    <input type="text" class="score" name="int" id="int" value="1">
                     <input type="text" class="mod" id="int-mod" value="-5" disabled>
                 </div>
                 <div class="ability wis-block">
                     <label for="wis">Мудрость</label>
-                    <input type="text" class="score" name="wis" id="wis" class="abilities" value="1">
+                    <input type="text" class="score" name="wis" id="wis" value="1">
                     <input type="text" class="mod" id="wis-mod" value="-5" disabled>
                 </div>
                 <div class="ability cha-block">
                     <label for="cha">Харизма</label>
-                    <input type="text" class="score" name="cha" id="cha" class="abilities" value="1">
+                    <input type="text" class="score" name="cha" id="cha" value="1">
                     <input type="text" class="mod" id="cha-mod" value="-5" disabled>
                 </div>
             </fieldset>
@@ -75,32 +75,11 @@
     <%- include('partials/footer'); -%>
 
     <script>
-        [...document.getElementsByClassName("abilities")]
-        .forEach(a => {a.addEventListener("input", () => {            
-            document.querySelector(`#${a.id}-mod`).value = abilityMod(a.value);
-        })})
-
-        function onSubmit() {
-            const statsJSON = document.getElementById("stats-json")
-            const classJSON = document.getElementById("class-json")
-
-            const statsObj = {
-                str: document.getElementById("str").value,
-                dex: document.getElementById("dex").value,
-                con: document.getElementById("con").value,
-                int: document.getElementById("int").value,
-                wis: document.getElementById("wis").value,
-                cha: document.getElementById("cha").value
-            }
-
-            const classObj = {
-                class_id: document.getElementById("class-name").value,
-                level: document.getElementById("class-level").value,
-            }
-
-            statsJSON.value = JSON.stringify(statsObj)
-            classJSON.value = JSON.stringify(classObj)
-        }
+        [...document.getElementsByClassName("score")]
+            .forEach(a => {a.addEventListener("input", () => {
+                console.log(a)
+                document.querySelector(`#${a.id}-mod`).value = abilityMod(a.value);
+            })})
     </script>
 </body>
 </html>
