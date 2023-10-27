@@ -1,7 +1,7 @@
 import express from "express"
+import cookieParser from 'cookie-parser'
 import { router } from './routs/routs.js'
 import { authCheck } from "./middleware/authCheck.js"
-import cookieParser from 'cookie-parser'
 import { characterCheck } from "./middleware/charCheck.js";
 import { cookieSecret } from "./config/config.js"
 
