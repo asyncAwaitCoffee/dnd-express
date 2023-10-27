@@ -19,14 +19,7 @@ nav {
     display: flex;
     height: 100%;
     width: 100%;
-}
-
-.flex-container {
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    justify-content: space-around
 }
 
 #welcome, #navigation {
@@ -39,12 +32,12 @@ nav {
 
 #welcome {
     justify-content: flex-end;
-    width: 70%;
+    width: 67%;
 }
 
 #navigation {
     justify-content: flex-start;
-    width: 30%;
+    width: 27%;
 }
 
 section {
@@ -98,25 +91,13 @@ a:hover {
     display: none;
   }
 
-.fixed {
-    position: sticky !important;
-    top: 0;
-    left: 0;
-}
-
 .hidden {
     opacity: 1;
     z-index: -1 !important;
 }
 
-.absent { /* для формы добавления фитов */
+.absent {
     display: none !important;
-}
-
-#pc-list {
-    position: absolute;
-    top: 10%;
-    left: 10%;
 }
 
 details > summary {
@@ -137,52 +118,15 @@ details[open] > summary {
     color:#eee; 
     background-color:#333;
 }
-/*
-details[open] {    
-    animation-name: example;
-    animation-duration: 0.3s;
-}
 
-@keyframes example {
-    from {font-size: 0;}
-    to {font-size: medium; }
-}
-*/
 .dangerous:hover {
     background-color: red !important;
 }
 
-.flex {
-    display: flex;
-    flex-flow: row;
-    flex-wrap: wrap;
-    height: 10%;
-    width: 100%;
-}
-.grid-20 {
+.grid {    
     display: grid;
     width: 100%;
     height: 100%;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    gap: 1px;
-}
-
-.grid-resistance {
-    display: grid;
-    width: 100%;
-    height: 100%;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    align-content: center;
-}
-
-.grid-spell-slots {
-    display: grid;
-    width: 100%;
-    height: 100%;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    align-content: center;
-    /*background-image: url("/images/magic.png");*/
-    background-size: cover;
 }
 
 .grid-cell {
@@ -197,16 +141,6 @@ details[open] {
     bottom: 0;
     right: 0;
 }
-  
-/*
-.spoiler {
-    height: 0%
-}
-
-.spoiler:hover {
-    height: fit-content;
-}
-*/
 
 .text-block-100 {
     width: 100%;
@@ -217,12 +151,6 @@ details[open] {
 .el-list-100 {
     width: 100%;
     text-align: center;
-    position: relative;
-}
-
-.el-list-45 {
-    height: fit-content;
-    width: 45%;
     position: relative;
 }
 
@@ -238,21 +166,9 @@ details[open] {
     position: relative;
 }
 
-.el-list-25 {
-    height: fit-content;
-    width: 25%;
-    position: relative;
-}
-
 .el-list-20 {
     height: fit-content;
     width: 20%;
-    position: relative;
-}
-
-.el-list-15 {
-    height: fit-content;
-    width: 15%;
     position: relative;
 }
 

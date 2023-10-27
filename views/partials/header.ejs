@@ -1,20 +1,20 @@
 <header>
   <nav>
     <ul id="navigation">
-      <li><a href="/">Главная</a></li>
+      <li><a href="/">Main</a></li>
       <% if (login) { %>
-        <li><a href="/account/list-of-characters">Список персонажей</a></li>
-        <li><a href="/account/new-character">Создать персонажа</a></li>
+        <li><a href="/account/list-of-characters">Character List</a></li>
+        <li><a href="/account/new-character">New Character</a></li>
       <% } %>
     </ul>
     
     <ul id="welcome">
       <% if (login) { %>
-        <li>Привет, <a href="/account/info"><%= login %>!</a></li>
-        <li><a href="/auth/logout">Выйти</a></li>
+        <li>Welcome, <a href="/account/info"><%= login %>!</a></li>
+        <li><a href="/auth/logout">Log Out</a></li>
       <% } else { %>
-        <li><a href="/auth/login">Войти</a></li>
-        <li><a href="/auth/signup" class="btn">Регистрация</a></li>
+        <li><a href="/auth/login">Log In</a></li>
+        <li><a href="/auth/signup" class="btn">Sign Up</a></li>
       <% } %>
     </ul>
   </nav>

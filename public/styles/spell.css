@@ -2,6 +2,11 @@
     flex: 1 1 auto;
 }
 
+.grid-spell-slots {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    background-size: cover;
+}
+
 .cast-button:hover {
     background-color: darkcyan;
     color: burlywood;
