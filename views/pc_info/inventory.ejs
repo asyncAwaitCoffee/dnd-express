@@ -3,7 +3,7 @@
         <div class="el-list-100 list-block-name">Inventory</div>
         <div class="el-list-100 list-block-subname">Equipment</div>
         <div id="consumables-list" class="list-block scrollable">
-            <div class="grid-20 el-list-100">
+            <div class="grid grid-inventory el-list-100">
                 <% for (let i = 0; i < (5 * 5); i++) { %>
                     <div class="grid-cell">
                         <% if (equipable.length > 0 && equipable[i]) { %>
@@ -26,7 +26,7 @@
         </div>
         <div class="el-list-100 list-block-subname">Items</div>
         <div id="equipment-list" class="list-block scrollable">
-            <div class="grid-20 el-list-100">
+            <div class="grid grid-inventory el-list-100">
                 <% for (let i = 0; i < (5 * 5); i++) { %>
                     <div class="grid-cell">
                         <% if (nonequipable.length > 0 && nonequipable[i]) { %>

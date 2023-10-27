@@ -1,0 +1,29 @@
+#form-feature-add {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 99;
+    background-color: rgba(210, 105, 30, 0.4);
+    width: 100%;
+    height: 100%;
+}
+
+#form-feature-add fieldset {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+}
+
+#form-feature-add legend {
+    font-weight: bold;
+    font-size: larger;
+}
+
+#form-feature-add textarea {
+    resize: none;
+}

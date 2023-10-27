@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Новый Персонаж</title>
+    <title>Create New Character</title>
     <link rel="icon" type="image/x-icon" href="/images/fav_icon.ico">
     <link rel="stylesheet" href="/styles/common.css">
     <link rel="stylesheet" href="/styles/new_character.css">
@@ -16,54 +16,54 @@
     <section>
         <form action="/account/new-character" method="post" autocomplete="off" onsubmit="onSubmit()">
             <fieldset id="char-fieldset">
-                <legend>Персонаж</legend>
-                <label for="char-name">Имя</label>
-                <input type="text" name="character_name" id="char-name" placeholder="Имя">
+                <legend>Character</legend>
+                <label for="char-name">Name</label>
+                <input type="text" name="character_name" id="char-name" placeholder="Name">
 
-                <label for="race-name">Раса</label>
+                <label for="race-name">Race</label>
                 <select name="race_id" id="race-name">
                     <option value="2">Mountain Dwarf</option>
                     <option value="3">Hill Dwarf</option>
                 </select>
 
-                <label for="class-name">Класс</label>
+                <label for="class-name">Class</label>
                 <select name="main_class" id="class-name">
                     <option value="1">Barbarian</option>
                     <option value="2">Druid</option>
                 </select>
 
-                <label for="class-level">Уровень</label>
+                <label for="class-level">Level</label>
                 <input type="number" name="main_level" id="class-level" min="1" max="20">
             </fieldset>
             <fieldset id="ability-fieldset">
-                <legend>Параметры</legend>
+                <legend>Abilities</legend>
                 <div class="ability str-block">
-                    <label for="str">Сила</label>
+                    <label for="str">Strength</label>
                     <input type="text" class="score" name="str" id="str" value="1">
                     <input type="text" class="mod" id="str-mod" value="-5" disabled>
                 </div>
                 <div class="ability dex-block">
-                    <label for="dex">Ловкость</label>
+                    <label for="dex">Dexterity</label>
                     <input type="text" class="score" name="dex" id="dex" value="1">
                     <input type="text" class="mod" id="dex-mod" value="-5" disabled>
                 </div>
                 <div class="ability con-block">
-                    <label for="con">Телосложение</label>
+                    <label for="con">Constitution</label>
                     <input type="text" class="score" name="con" id="con" value="1">
                     <input type="text" class="mod" id="con-mod" value="-5" disabled>
                 </div>
                 <div class="ability int-block">
-                    <label for="int">Интеллект</label>
+                    <label for="int">Intelligence</label>
                     <input type="text" class="score" name="int" id="int" value="1">
                     <input type="text" class="mod" id="int-mod" value="-5" disabled>
                 </div>
                 <div class="ability wis-block">
-                    <label for="wis">Мудрость</label>
+                    <label for="wis">Wisdom</label>
                     <input type="text" class="score" name="wis" id="wis" value="1">
                     <input type="text" class="mod" id="wis-mod" value="-5" disabled>
                 </div>
                 <div class="ability cha-block">
-                    <label for="cha">Харизма</label>
+                    <label for="cha">Charisma</label>
                     <input type="text" class="score" name="cha" id="cha" value="1">
                     <input type="text" class="mod" id="cha-mod" value="-5" disabled>
                 </div>
