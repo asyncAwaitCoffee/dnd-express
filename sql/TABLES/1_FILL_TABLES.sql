@@ -63,7 +63,7 @@ insert into classes
 	(title, hp_dice)
 values
 	('Barbarian', '{"12": 1}'),
-	('Druid', '{"8": 1}'),;
+	('Druid', '{"8": 1}');
 
 truncate table effects;
 alter sequence effects_seq restart;
