@@ -1,7 +1,7 @@
 import { DB } from "./DB.js";
 import { UserException } from "./Wrappers.js";
-import { passwordSecret } from "../config/config.js"
-
+//import { passwordSecret } from "../config/config.js"
+import { passwordSecret } from "/etc/secrets/config.js"
 
 const { createHmac } = await import('node:crypto');
 
