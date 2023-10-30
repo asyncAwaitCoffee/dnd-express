@@ -1,7 +1,7 @@
 import pg from "pg"
 import {DBException} from "./Wrappers.js"
 //import { host, port, database, user, password } from "../config/config.js"
-import { host, port, database, user, password } from "/etc/secrets/config.js"
+import { host, port, database, user, password } from "./etc/secrets/config.js"
 
 const { Pool } = pg;
 
