@@ -4,6 +4,8 @@ import {DBException} from "./Wrappers.js"
 
 const { host, port, database, user, password } = process.env;
 
+console.log(host, port, database, user, password)
+
 const { Pool } = pg;
 
 const poolPG = new Pool({
