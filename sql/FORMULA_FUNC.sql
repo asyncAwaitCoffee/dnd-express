@@ -1,3 +1,5 @@
+create schema if not exists formulas;
+
 create or replace function formulas.process_formula
 (
 	_character_id bigint,
