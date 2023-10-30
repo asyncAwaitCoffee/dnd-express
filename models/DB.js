@@ -19,10 +19,6 @@ const poolPG = new Pool({
     connectionTimeoutMillis: 2000,
 })
 
-const clientPG = await poolPG.connect()
-const res = await clientPG.query('SELECT NOW()')
-console.log(res)
-
 export class DB {
 
     static async queryRow(queryText, ...args) {
@@ -30,6 +26,10 @@ export class DB {
             const clientPG = await poolPG.connect()
             const rows = await clientPG.query(queryText, args).then(value => value.rows)
             clientPG.release()
+
+            const res = await clientPG.query('SELECT NOW()')
+            console.log(res)
+
             return rows[0]
         } catch(e) {
             throw new DBException(`\nQUERY: ${queryText}\n -> WITH ARGS: ${args}\nERROR: ${e.message}`)
