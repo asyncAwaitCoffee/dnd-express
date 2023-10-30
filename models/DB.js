@@ -19,7 +19,8 @@ const poolPG = new Pool({
     connectionTimeoutMillis: 2000,
 })
 
-const res = await poolPG.query('SELECT NOW()')
+const clientPG = await poolPG.connect()
+const res = await clientPG.query('SELECT NOW()')
 console.log(res)
 
 export class DB {
