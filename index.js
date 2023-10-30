@@ -4,10 +4,8 @@ import { router } from './routs/routs.js'
 import { authCheck } from "./middleware/authCheck.js"
 import { characterCheck } from "./middleware/charCheck.js";
 //import { cookieSecret } from "./config/config.js"
-//import { cookieSecret } from "/etc/secrets/config.js"
-import pkg from '/etc/secrets/config.js';
 
-const { cookieSecret } = pkg
+const cookieSecret = process.env.cookieSecret
 
 const app = express();
 const port = 3000;
