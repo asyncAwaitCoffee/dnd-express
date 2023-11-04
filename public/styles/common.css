@@ -50,6 +50,7 @@ section {
     justify-content: center;
     gap: 0.5%;
     overflow: hidden;
+    position: relative;
 }
 
 footer {

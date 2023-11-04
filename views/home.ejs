@@ -7,58 +7,56 @@
     <link rel="icon" type="image/x-icon" href="/images/fav_icon.ico">
     <link rel="stylesheet" href="/styles/home.css">
     <link rel="stylesheet" href="/styles/common.css">
-    <link href="https://fonts.cdnfonts.com/css/beautiful-magic" rel="stylesheet">                
+    <script src="/scripts/home.js" defer></script>
+    <link href="https://fonts.cdnfonts.com/css/beautiful-magic" rel="stylesheet">
 </head>
 <body>
 
     <%- include('partials/header'); -%>
 
     <section id="home">
-        <div class="step-text" id="step_1">
-            <h1 class="dealayed_a">M</h1>
-            <h3><span>Manage spells, skills and inventory</span></h3>
-        </div>
-        <div class="step-img" id="step_2"></div>
-        <div class="step-text" id="step_5">
-            <h1 class="dealayed_b">G</h1>
-            <h3><span>Gather with other adventurers</span></h3>
-        </div>
-        <div class="step-img" id="step_4"></div>
-        <div class="step-text" id="step_9">
-            <h1 class="dealayed_c">C</h1>
-            <h3><span>Create unforgettable adventures</span></h3>
-        </div>
-        <div class="step-img" id="step_6"></div>
-        <div class="step-text" id="step_3">
-            <h1 class="dealayed_d">A</h1>
-            <h3><span>Add custom features and items</span></h3>
-        </div>
-        <div class="step-img" id="step_8"></div>
-        <div class="step-text" id="step_7">
-            <h1 class="dealayed_e">I</h1>
-            <h3><span>Investigate mysteries woven by GM</span></h3>
-        </div>
-        <div class="step-img" id="step_10"></div>
+        <section class="one-third">
+            <div class="step-text cards" data-leaves="manage">
+                <h1 class="dealayed_a"><span>M</span></h1>
+                <h3><span>Manage</span></h3>
+            </div>
+            <div class="step-text cards" data-leaves="add">
+                <h1 class="dealayed_d"><span>A</span></h1>
+                <h3><span>Add</span></h3>
+            </div>
+            <div class="step-text cards" data-leaves="gather">
+                <h1 class="dealayed_b"><span>G</span></h1>
+                <h3><span>Gather</span></h3>
+            </div>
+            <div class="step-text cards" data-leaves="investigate">
+                <h1 class="dealayed_e"><span>I</span></h1>
+                <h3><span>Investigate</span></h3>
+            </div>
+            <div class="step-text cards" data-leaves="create">
+                <h1 class="dealayed_c"><span>C</span></h1>
+                <h3><span>Create</span></h3>
+            </div>
+        </section>
+        <section class="one-third">
+            <div id="sphere">
+                <span class="leaves manage">spells</span>
+                <span class="leaves manage">skills</span>
+                <span class="leaves manage">inventory</span>
+                <span class="leaves gather">adventurers</span>
+                <span class="leaves create">adventures</span>
+                <span class="leaves add">features</span>
+                <span class="leaves add">items</span>
+                <span class="leaves investigate">mysteries</span>
+            </div>
+        </section>
+        <section class="one-third">
+            <div class="step-img" id="step_2"></div>
+            <div class="step-img" id="step_4"></div>
+            <div class="step-img" id="step_6"></div>
+            <div class="step-img" id="step_8"></div>
+            <div class="step-img" id="step_10"></div>
+        </section>
     </section>
-
-    <script>
-        const steps = [...document.getElementsByClassName("step-text"), ...document.getElementsByClassName("step-img")]
-
-        for (const step of steps) {
-            const x = 500 * (Math.random() > 0.5 ? -1 : 1)
-            const y = 500 * (Math.random() > 0.5 ? -1 : 1)
-            step.style.transform = `translate(${x}%, ${y}%) rotate(${360 * Math.random() * (Math.random() > 0.5 ? -1 : 1)}deg)`
-        }
-
-
-        window.onload = () => {
-            
-            for (const step of steps) {
-                step.style.transitionDelay = `${Math.random()}s`
-                step.classList.add("back")
-            }
-        }
-    </script>
 
     <%- include('partials/footer'); -%>
 
