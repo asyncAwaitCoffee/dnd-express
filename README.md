@@ -1,1 +1,1 @@
-# boardgame character calculator and interface
+# boardgame character calculator
