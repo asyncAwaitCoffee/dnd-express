@@ -1,1 +1,2 @@
-# boardgame character calculator
+# About
+Boardgame character calculator
